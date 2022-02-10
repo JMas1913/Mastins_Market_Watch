@@ -29,10 +29,9 @@ To start, fork and clone this repository, then download all the dependencies.
 
 -[API and Market information](https://ftcloud.fasttrack.net/web/homescreen?token=D589C3F2-AC14-490A-8F6B-506B116E7F69) 
 
+-[React Notes](https://github.com/SEI-R-11-8/u2_lesson_intro_to_react)
 
--[React Notes]()
-
--[MongoDB Notes]()
+-[MongoDB Notes](https://github.com/SEI-R-11-8/u2_hw_mongoose_plants)
 
 -John Jacobs
 
