@@ -14,8 +14,8 @@ const createUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const plants = await Plant.find();
-    return res.status(200).json({ plants });
+    const users = await User.find();
+    return res.status(200).json({ users });
   } catch (error) {
     return res.status(500).send(error.message);
   }
@@ -24,11 +24,11 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const { id } = req.params;
-    const plant = await Plant.findById(id);
-    if (plant) {
-      return res.status(200).json({ plant });
+    const user = await User.findById(id);
+    if (user) {
+      return res.status(200).json({ user });
     }
-    return res.status(404).send('Plant with the specified ID does not exists');
+    return res.status(404).send('User with the specified ID does not exists');
   } catch (error) {
     return res.status(500).send(error.message);
   }
@@ -37,14 +37,14 @@ const getUserById = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
-    await Plant.findByIdAndUpdate(id, req.body, { new: true }, (err, plant) => {
+    await User.findByIdAndUpdate(id, req.body, { new: true }, (err, user) => {
       if (err) {
         res.status(500).send(err);
       }
-      if (!plant) {
-        res.status(500).send('Plant not found!');
+      if (!user) {
+        res.status(500).send('User not found!');
       }
-      return res.status(200).json(plant);
+      return res.status(200).json(user);
     });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -54,11 +54,11 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await Plant.findByIdAndDelete(id);
+    const deleted = await User.findByIdAndDelete(id);
     if (deleted) {
-      return res.status(200).send('Plant deleted');
+      return res.status(200).send('User deleted');
     }
-    throw new Error('Plant not found');
+    throw new Error('User not found');
   } catch (error) {
     return res.status(500).send(error.message);
   }
