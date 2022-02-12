@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+  color: green;
+}
+
+div {
+  color: green;
+}
+
+.exercisedetail,
+.detail-header,
+.listofexercises,
+.home,
+.home div,
+.exercise-card,
+.nav,
+.markets,
+.newprofile {
+  display: flex;
+}
+
+.home,
+.home div {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.detail,
+.exercise-card,
+.home div {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.nav {
+  justify-content: space-between;
+  align-items: center;
+  color: green;
+  background-color: whitesmoke;
+  padding: 1em;
+  min-height: 2em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+  width: 100%;
+  height: 100%;
+  color: green;
+  text-align: center;
+  align-items: center;
+}
