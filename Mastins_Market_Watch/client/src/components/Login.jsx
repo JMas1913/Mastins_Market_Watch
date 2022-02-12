@@ -1,15 +1,30 @@
 import index from '../../../backend/controllers'
 
+console.log(index.getAllUsers())
+
 const Login = () => {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [isValid, setIsValid] = useState(false);
     const [hyperliknk, setHyperlink] = useState('');
 
-    console.log(index.getAllUsers())
+    const check = () => {
+        e.preventDefault()
+        if (
+            username.length > 0 &&
+            password.length >= 7
+        ) {
+            setIsValid(true);
+            setHyperlink('http://localhost:3000/login');
+            submit();
+        } else {
+            setIsValid(false);
+            setHyperlink('');
+            submit();
+        }
+    };
 
     const submit = (e) => {
-        e.preventDefault()
         if (setIsValid === true) {
             return 'Valid';
         } else if (setIsValid === false) {

@@ -14,6 +14,8 @@ router.put('/users/:id', controllers.updateUser);
 
 router.delete('/users/:id', controllers.deleteUser);
 
+router.get('/login', controllers.getAllUsers);
+
 router.get('/users/watchlist', (req, res) =>
   res.send('This is the User Watch List!')
 );
