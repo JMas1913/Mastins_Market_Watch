@@ -3,9 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
-// import UserDetails from './components/UserDetails';
 import Validator from './components/Validator';
-// import UserWatchListDetails from './components/UserWatchListDetails';
 import Markets from './components/Markets';
 
 export default function App() {
