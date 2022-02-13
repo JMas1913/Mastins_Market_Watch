@@ -23,7 +23,7 @@ export default function UserWatchList(props) {
 
 
   return (
-    <div key={userWatchList}>
+    <div className="watchlist" key={userWatchList}>
       { userWatchList.userWatchList &&
       userWatchList.userWatchList.map((userWatchList) => (
         <div className="userWatchList-card" onClick={() => showUserWatchList(userWatchList)}>
