@@ -9,10 +9,8 @@ div {
 
 .login,
 .markets,
-.details,
 .home,
 .home div,
-.watchlist,
 .nav,
 .form {
   display: flex;
