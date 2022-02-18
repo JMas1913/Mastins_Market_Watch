@@ -47,7 +47,7 @@ const Validator = () => {
             setUsername(e.target.value);
           }}
         />
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username"></label>
 
         <input
           type="password"
@@ -58,7 +58,7 @@ const Validator = () => {
             setPassword(e.target.value);
           }}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password"></label>
 
         <input
           type="password"
@@ -69,7 +69,7 @@ const Validator = () => {
             setConfrimPassword(e.target.value);
           }}
         />
-        <label htmlFor="passwordConfirm">Confirm password</label>
+        <label htmlFor="passwordConfirm"></label>
 
         <button
           type="submit"

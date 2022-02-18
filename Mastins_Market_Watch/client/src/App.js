@@ -1,5 +1,5 @@
 import React from 'react';
-// import './styles/App.css';
+import './style/App.css';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
@@ -14,8 +14,8 @@ export default function App() {
       </header>
       <main>
         <Switch>
-          <Route exact path="/" component={Validator} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/newprofile" component={Validator} />
           <Route path="/markets" component={Markets} />
         </Switch>
       </main>
