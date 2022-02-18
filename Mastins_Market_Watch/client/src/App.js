@@ -16,7 +16,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/newprofile" component={Validator} />
-          <Route path="/markets" component={Markets} />
+          <Route exact path="/markets" component={Markets} />
         </Switch>
       </main>
     </div>

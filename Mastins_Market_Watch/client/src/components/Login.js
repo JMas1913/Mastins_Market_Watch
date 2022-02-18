@@ -8,11 +8,7 @@ const Login = () => {
   const [hyperliknk, setHyperlink] = useState('');
 
   const check = () => {
-    if (
-      username.length > 0 &&
-      password.length >= 7 &&
-      confirmPassword === password
-    ) {
+    if (username.length > 0 && password.length >= 7) {
       setIsValid(true);
       setHyperlink('http://localhost:3000/markets');
       submit();

@@ -12,6 +12,7 @@ export default function Home() {
           alt="investing"
         />
       </div>
+      <div></div>
     </div>
   );
 }
