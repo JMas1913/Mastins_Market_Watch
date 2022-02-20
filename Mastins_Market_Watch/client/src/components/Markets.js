@@ -1,22 +1,32 @@
 import { BASE_URL } from '../globals';
-import { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import axios from 'axios';
 
 export default function Markets() {
   const API_KEY = process.env.REACT_APP_MS_API_KEY;
-  const [isEndOfDay, setEndOfDay] = useState('');
-  const [isStockTicker, setStockTicker] = useState('');
-  const [isExchange, setExchange] = useState('');
-  const [isCurrency, setCurrency] = useState('');
+  const [dataEndOfDay, setEndOfDay] = useState('');
+  const [dataStockTicker, setStockTicker] = useState('');
+  const [dataExchange, setExchange] = useState('');
+  const [dataCurrency, setCurrency] = useState('');
 
   async function getEndOfDay() {
     try {
       const response = await axios.get(
         `${BASE_URL}eod?access_key=${API_KEY}&symbols=AAPL`
       );
-      setEndOfDay(JSON.stringify(response.data.data));
-      // console.log(response.data.data[0]);
+      console.log(response.data.data);
+      setEndOfDay(
+        response.data.data.map((row) => {
+          return (
+            <tr>
+              <td>{row.date}</td>
+              <td>{row.symbol}</td>
+              <td>${row.open}</td>
+              <td>${row.close}</td>
+            </tr>
+          );
+        })
+      );
     } catch (error) {
       console.error(error);
     }
@@ -27,7 +37,7 @@ export default function Markets() {
       const response = await axios.get(
         `${BASE_URL}tickers?access_key=${API_KEY}`
       );
-      setStockTicker(JSON.stringify(response.data.data));
+      setStockTicker(JSON.stringify(response.data.data, null, 2));
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -39,7 +49,7 @@ export default function Markets() {
       const response = await axios.get(
         `${BASE_URL}exchanges?access_key=${API_KEY}`
       );
-      setExchange(JSON.stringify(response.data.data));
+      setExchange(JSON.stringify(response.data.data, null, 2));
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -51,7 +61,7 @@ export default function Markets() {
       const response = await axios.get(
         `${BASE_URL}currencies?access_key=${API_KEY}`
       );
-      setCurrency(JSON.stringify(response.data.data));
+      setCurrency(JSON.stringify(response.data.data, null, 2));
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -66,10 +76,20 @@ export default function Markets() {
       <button onClick={getCurrency}>
         Get Information on Different Currencies
       </button>
-      <p>{isEndOfDay}</p>
-      <p>{isStockTicker}</p>
-      <p>{isExchange}</p>
-      <p>{isCurrency}</p>
+
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Symbol</th>
+          <th>Open</th>
+          <th>Close</th>
+        </tr>
+        {dataEndOfDay}
+      </table>
+
+      <p>{dataStockTicker}</p>
+      <p>{dataExchange}</p>
+      <p>{dataCurrency}</p>
     </div>
   );
 }
