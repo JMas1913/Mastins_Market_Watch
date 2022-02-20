@@ -37,7 +37,17 @@ export default function Markets() {
       const response = await axios.get(
         `${BASE_URL}tickers?access_key=${API_KEY}`
       );
-      setStockTicker(JSON.stringify(response.data.data, null, 2));
+      setStockTicker(
+        response.data.data.map((row) => {
+          return (
+            <tr>
+              <td>{row.name}</td>
+              <td>{row.symbol}</td>
+              <td>{row.stock_exchange.acronym}</td>
+            </tr>
+          );
+        })
+      );
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -49,7 +59,17 @@ export default function Markets() {
       const response = await axios.get(
         `${BASE_URL}exchanges?access_key=${API_KEY}`
       );
-      setExchange(JSON.stringify(response.data.data, null, 2));
+      setExchange(
+        response.data.data.map((row) => {
+          return (
+            <tr>
+              <td>{row.acronym}</td>
+              <td>{row.country}</td>
+              <td>{row.city}</td>
+            </tr>
+          );
+        })
+      );
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -61,7 +81,17 @@ export default function Markets() {
       const response = await axios.get(
         `${BASE_URL}currencies?access_key=${API_KEY}`
       );
-      setCurrency(JSON.stringify(response.data.data, null, 2));
+      setCurrency(
+        response.data.data.map((row) => {
+          return (
+            <tr>
+              <td>{row.name}</td>
+              <td>{row.code}</td>
+              <td>{row.symbol}</td>
+            </tr>
+          );
+        })
+      );
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -87,9 +117,32 @@ export default function Markets() {
         {dataEndOfDay}
       </table>
 
-      <p>{dataStockTicker}</p>
-      <p>{dataExchange}</p>
-      <p>{dataCurrency}</p>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Symbol</th>
+          <th>Stock Exchange</th>
+        </tr>
+        {dataStockTicker}
+      </table>
+
+      <table>
+        <tr>
+          <th>Acronym</th>
+          <th>Country</th>
+          <th>City</th>
+        </tr>
+        {dataExchange}
+      </table>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Symbol</th>
+        </tr>
+        {dataCurrency}
+      </table>
     </div>
   );
 }
