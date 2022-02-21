@@ -5,10 +5,12 @@
 
 div {
   color: green;
+  text-align: center;
 }
 
 .home, .home div, .Login, .markets, .navbar, .form {
   display: flex;
+  justify-content: center;
 }
 
 .home, .home div {

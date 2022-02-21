@@ -18,6 +18,10 @@ export default function App() {
           <Route exact path="/newprofile" component={Validator} />
           <Route exact path="/markets" component={Markets} />
         </Switch>
+
+        <div class="resultParas">
+          <p class="lowOrHi"></p>
+        </div>
       </main>
     </div>
   );

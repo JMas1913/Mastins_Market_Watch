@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function Markets() {
   const API_KEY = process.env.REACT_APP_MS_API_KEY;
+  const lowOrHi = document.querySelector('.lowOrHi');
   const [dataEndOfDay, setEndOfDay] = useState('');
   const [dataStockTicker, setStockTicker] = useState('');
   const [dataExchange, setExchange] = useState('');
@@ -18,6 +19,13 @@ export default function Markets() {
       setEndOfDay(
         response.data.data.map((row) => {
           return (
+            // if (row.close > row.open) {
+            //   row.close.style.background = 'green'
+            //   lowOrHi.textContent = ''
+            // } else {
+            //   row.close.style.background = 'red'
+            //   lowOrHi.textContent = ''
+            // }
             <tr>
               <td>{row.date}</td>
               <td>{row.symbol}</td>
