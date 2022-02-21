@@ -7,7 +7,7 @@ div {
   color: green;
 }
 
-.home, .home div, .Login, .marketinfo, .markets, .navbar, .form {
+.home, .home div, .Login, .markets, .navbar, .form {
   display: flex;
 }
 

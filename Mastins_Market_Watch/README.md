@@ -33,6 +33,8 @@ To start, fork and clone this repository, then download all the dependencies.
 
 -[React Notes](https://github.com/SEI-R-11-8/u2_lesson_intro_to_react)
 
+-[Conditional Rendering](https://github.com/SEI-R-11-8/u2_lesson_react_conditional_rendering)
+
 -[MongoDB Notes](https://github.com/SEI-R-11-8/u2_hw_mongoose_plants)
 
 -John Jacobs
